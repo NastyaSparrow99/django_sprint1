@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <h1 class="mb-4">{{ post.location }}</h1>
+        <p class="text-muted">{{ post.date }}</p>
+        <p><strong>Категория:</strong> {{ post.category }}</p>
+        <p>{{ post.text }}</p>
+        <a href="{% url 'blog:index' %}" class="btn btn-secondary">Назад к ленте</a>
+    </div>
+</div>
+{% endblock %}
