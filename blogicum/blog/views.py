@@ -46,7 +46,8 @@ posts = [
 
 
 def index(request):
-    return render(request, 'blog/index.html', {'posts': posts})
+    reversed_posts = list(reversed(posts))  # Инвертируем список постов
+    return render(request, 'blog/index.html', {'posts': reversed_posts})
 
 
 def post_detail(request, id):
@@ -58,8 +59,5 @@ def post_detail(request, id):
 
 
 def category_posts(request, category_slug):
-    return render(
-        request,
-        'blog/category.html',
-        {'category_slug': category_slug}
-    )
+    return render(request, 'blog/category.html',
+                  {'category_slug': category_slug})
