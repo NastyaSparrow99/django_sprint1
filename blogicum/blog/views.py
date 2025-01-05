@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 
 posts = [
     {
@@ -49,7 +49,10 @@ def index(request):
 
 
 def post_detail(request, id):
-    post = next((post for post in posts if post['id'] == id), None)
+    post = next(
+    (post for post in posts if post['id'] == id),
+    None
+)
     return render(request, 'blog/detail.html', {'post': post})
 
 
